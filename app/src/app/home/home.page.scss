@@ -1,0 +1,17 @@
+.var-name {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+.var-value {
+  float: right;
+  width: 50%;
+  padding: 5px;
+}
+
+.container-text {
+  .var-name, .var-value {
+    float: none;
+    padding: 5px;
+  }
+}

@@ -1,0 +1,41 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let meta of metas">
+        <div *ngFor="let variable of meta.data">
+          <div *ngIf="variable.type == 'boolean'">
+            <div class="var-name">{{ variable.name }}</div>
+            <div class="var-value">{{ variable.value }}</div>
+          </div>
+          <div *ngIf="variable.type == 'number'">
+            <div *ngIf="variable.max">
+              <div>
+                <span>{{ variable.name }}</span>
+              </div>
+              <div>
+                <ion-progress-bar *ngIf="!variable.min" value="{{ variable.value / variable.max }}"></ion-progress-bar>
+                <ion-progress-bar *ngIf="variable.min" value="{{ variable.value / (variable.max - variable.min) }}"></ion-progress-bar>
+              </div>
+              <div>
+                <span>{{ variable.min ? variable.min : '' }}</span>
+                <span>{{ variable.max }}</span>
+              </div>
+            </div>
+            <div *ngIf="!variable.max">
+              <div class="var-name">{{ variable.name }}</div>
+              <div class="var-value">{{ variable.value }}</div>
+            </div>
+          </div>
+          <div *ngIf="variable.type == 'short_string'">
+            <div class="var-name">{{ variable.name }}</div>
+            <div class="var-value">{{ variable.value }}</div>
+          </div>
+          <div *ngIf="variable.type == 'text'" class="container-text">
+            <div class="var-name">{{ variable.name }}</div>
+            <div class="var-value">{{ variable.value }}</div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

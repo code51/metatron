@@ -1,0 +1,7 @@
+{
+  "name": "Metatron",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
